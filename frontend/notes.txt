@@ -1,0 +1,7 @@
+// whenever the extension is active, it reads reminders from gcal and saves them to localstorage. then the background worker can access these reminders and ssend notifs
+
+// backend stores bookmarks of the user
+
+// all calendar related processing is done on the frontend
+
+

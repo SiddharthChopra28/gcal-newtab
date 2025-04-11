@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Tabendar",
+    "version": "0.1",
+    "description": "write something here",
+    "chrome_url_overrides": {
+      "newtab": "index.html"
+    },
+    "permissions": ["identity"],
+    "oauth2": {
+        "client_id": "913268019547-in69acteccn0v7cju9bg93ep3k7ntliu.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/calendar"
+            
+          ]
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "http://localhost:3000/*"
+      ],
+
+
+      "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }

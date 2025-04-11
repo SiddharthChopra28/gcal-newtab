@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --top-pad: 30px;
+}
+
+#mainpage{
+    display: flex;
+font-family: "Poppins", sans-serif;
+}
+
+#leftnavbar{
+    height: calc(100vh - var(--top-pad));
+    width: 4vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--top-pad);
+    background-color: #8E88C1;
+}
+
+#taskbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-start;
+    padding-top: 10px;
+}
+
+.bookmark{
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+#plus{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+}
+
+#mainbody{
+    display: flex;
+    flex-direction: column;
+    background-color: #1B1B1B;
+    flex-grow: 1;
+}
+
+#topbar{
+    display: flex;
+    color: white;
+    padding-top: var(--top-pad);
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+#timebox{
+    margin-left: 4%;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#time{
+    font-size: 80px;
+    line-height: 85px;
+}
+#date{
+    font-size: 15px;
+    
+}
+
+#profile{
+    margin-right: 2%;
+}
+
+#calbody{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.calrow{
+    display: flex;
+    justify-content: space-evenly;
+}
+.calbox{
+    background: #7571719a;
+    border-radius: 10%;
+    width: 6vw;
+    height: 6vw;
+}
+
+.eventdots{
+    display: flex;
+}
+
+.dot{
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    background-color: #8E88C1;
+}
+#header{
+    color: white;
+    font-size: large;
+    position: relative;
+    top: -15px;
+}
+
