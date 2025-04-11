@@ -129,3 +129,8 @@ font-family: "Poppins", sans-serif;
 .eventdots{
     margin-left: 15px;
 }
+#pfp{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}

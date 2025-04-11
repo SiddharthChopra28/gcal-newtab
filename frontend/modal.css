@@ -42,7 +42,7 @@
 }
 
 .modal {
-    background-color: white;
+    background-color: #8E88C1;
     width: 90%;
     max-width: 600px;
     border-radius: 8px;
@@ -78,7 +78,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #666;
+    color: #1d1c1c;
 }
 
 .modal-body {
@@ -111,7 +111,7 @@
 }
 
 .add-task-button {
-    background-color: #2ecc71;
+    background-color: #f73e66;
     color: white;
 }
 
@@ -123,7 +123,7 @@
 }
 
 .task-item {
-    background-color: #f9f9f9;
+    background-color: #b1aecf;
     border-radius: 4px;
     padding: 12px 15px;
     margin-bottom: 10px;
@@ -145,7 +145,7 @@
 
 .task-description {
     margin: 0;
-    color: #666;
+    color: #222121;
     font-size: 14px;
 }
 
@@ -163,7 +163,7 @@
 }
 
 .edit-button {
-    color: #3498db;
+    color: #082a41;
 }
 
 .edit-button:hover {
@@ -181,7 +181,7 @@
 
 /* Task form styling */
 .task-form {
-    background-color: #f5f5f5;
+    background-color: #b1aecf;
     padding: 15px;
     border-radius: 5px;
     margin-top: 20px;
@@ -226,7 +226,7 @@
 .empty-state {
     text-align: center;
     padding: 30px 0;
-    color: #777;
+    color: #1b1a1a;
 }
 
 .empty-state p {

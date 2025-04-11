@@ -1,3 +1,28 @@
+
+
+async function getpfp(){
+    chrome.identity.getAuthToken({ interactive: true }, async (token) => {      
+
+        const res = await fetch("https://people.googleapis.com/v1/people/me?personFields=photos", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      
+        const data = await res.json();
+        console.log("User data:", data);
+      
+        // Get the profile photo URL
+        const photoUrl = data.photos?.[0]?.url;
+        if (photoUrl) {
+          document.getElementById("pfp").src = photoUrl;
+        } else {
+          console.log("No profile photo found");
+        }
+      });
+      
+}
+
 async function putDates() {
     const _dates = await fetch("http://localhost:3000/api/getCurrent35", {
         method: 'GET',
@@ -121,6 +146,7 @@ function updateClock() {
 window.onload = () => {
     putDates();
     putEvents();
+    getpfp();
     setInterval(updateClock, 1000);
     updateClock();
 
