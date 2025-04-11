@@ -15,26 +15,78 @@ import {
 const router = express.Router()
 
 router.post('/hihello', (req, res)=>{
-    console.log(req.body    )
+    console.log(req.body.event)
     res.send("L no")
 })
 
-router.post('/new', async (req, res)=>{
-    console.log(req.body)
-    // const data = new Model({
-    //     name: req.body.name,
-    //     age: req.body.age
-    // })
-    // try {
-    //     const dataToSave = await data.save();
-    //     res.status(200).json(dataToSave)
-    // }
-    // catch (error) {
-    //     res.status(400).json({message: error.message})
-    // }
-    res.status(200).send("hi")
+router.post('/newEvent', async (req, res)=>{
+    var event = req.body.event
+    var token = req.body.token
+
+    
+    var res = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(event)
+    });
+
+    const data = await res.json();
+    console.log('Created event:', data);
+
+    res.send("hi")
 
 })
+
+router.post('/editEvent', async (req, res)=>{
+    var event = req.body.event
+    var token = req.body.token
+    var id = req.body.id
+    
+    try{
+        var res = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events/${id}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event)
+        });
+    
+        var data = await res.json();
+        console.log('Created event:', data);
+    
+    }
+    catch{
+        console.log('error in editing')
+        res.send('error in editing')
+    }
+
+    res.send("hi")
+
+})
+
+router.post('/deleteEvent', async (req, res)=>{
+    var token = req.body.token
+    let id = req.body.id
+
+    var res = await fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+
+    if (res.status === 204) {
+        console.log('Event deleted successfully');
+    } else {
+        const err = await res.json();
+        console.error('Error deleting event:', err);
+    }
+})
+
 
 router.get('/getCurrent35', (req, res)=>{
     // should return an array of 35 objects to fill the calendar monthly grid
@@ -94,7 +146,7 @@ router.post('/getEvents', async (req, res)=>{
     }
 
 
-    res.status(200).send(calendar_events)
+    res.send(calendar_events)
 })
 
 export default router
